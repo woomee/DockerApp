@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  centos7:
+    #image: centos:centos7
+    build:
+      context: .
+      dockerfile: Dockerfile_7
+    ports:
+      - "20022:22"
+      - "20080:80"
+    volumes:
+      - ./mount/home:/home
+      - ./mount/www:/var/www/html
+    command: 
+      - bash
+      - -c
+      - /usr/sbin/httpd &&
+        /usr/sbin/sshd -D
+         

@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:11
+    container_name: "postgres"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./mount/data:/var/lib/postgresql/data
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    ports:
+        - 15433:80
+    volumes:
+        - ./mount/pgadmin:/var/lib/pgadmin
+    environment:
+        PGADMIN_DEFAULT_EMAIL: postgres
+        PGADMIN_DEFAULT_PASSWORD: postgres
+    depends_on:
+      - postgres
+    restart: always
