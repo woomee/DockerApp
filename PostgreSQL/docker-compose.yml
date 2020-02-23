@@ -20,7 +20,7 @@ services:
   pgadmin4:
     image: dpage/pgadmin4
     ports:
-        - 15433:80
+        - 10080:80
     volumes:
         - ./mount/pgadmin:/var/lib/pgadmin
     environment:
