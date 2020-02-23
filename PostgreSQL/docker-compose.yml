@@ -1,21 +1,24 @@
 version: "3"
 
+volumes:
+  pgdata:
+    driver: local
+
 services:
   postgres:
     image: postgres:11
-    container_name: "postgres"
+    restart: always
     environment:
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     ports:
       - "15432:5432"
     volumes:
-      - ./mount/data:/var/lib/postgresql/data
+      #- ./mount/data:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
 
   pgadmin4:
     image: dpage/pgadmin4
-    container_name: pgadmin4
     ports:
         - 15433:80
     volumes:
@@ -25,4 +28,4 @@ services:
         PGADMIN_DEFAULT_PASSWORD: postgres
     depends_on:
       - postgres
-    restart: always
+  
