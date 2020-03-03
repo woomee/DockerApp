@@ -17,4 +17,12 @@ services:
       - -c
       - /usr/sbin/httpd &&
         /usr/sbin/sshd -D
-         
+  # リモートデスクトップ接続用
+  centos7-xrdp:
+    build:
+      context: ./xrdp
+      dockerfile: Dockerfile_xrdp
+    ports:
+      - "13389:3389"
+    volumes:
+      - ./mount:/mnt/host
