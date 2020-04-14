@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: Dockerfile_7
     ports:
-      - "10022:22"
-      - "10080:80"
+      - "20022:22"
+      - "20080:80"
     volumes:
       - ./mount/home:/home
       - ./mount/www:/var/www/html
@@ -23,6 +23,6 @@ services:
       context: ./xrdp
       dockerfile: Dockerfile_xrdp
     ports:
-      - "13389:3389"
+      - "23389:3389"
     volumes:
       - ./mount:/mnt/host
