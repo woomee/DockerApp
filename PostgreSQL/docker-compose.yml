@@ -16,6 +16,7 @@ services:
     volumes:
       #- ./mount/data:/var/lib/postgresql/data
       - pgdata:/var/lib/postgresql/data
+      - ./mount/pginit:/docker-entrypoint-initdb.d
 
   pgadmin4:
     image: dpage/pgadmin4
