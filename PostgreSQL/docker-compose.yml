@@ -7,7 +7,7 @@ volumes:
 services:
   postgres:
     image: postgres:12.2
-    restart: always
+    restart: unless-stopped
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
@@ -20,6 +20,7 @@ services:
 
   pgadmin4:
     image: dpage/pgadmin4:4.20
+    restart: unless-stopped
     ports:
         - 10080:80
     volumes:

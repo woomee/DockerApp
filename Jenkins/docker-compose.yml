@@ -4,8 +4,8 @@ services:
   jenkins:
     image: jenkins/jenkins:lts-alpine
     ports:
-      - "38080:8080"
-      - "30000:50000"
+      - "18080:8080"
+      - "50000:50000"
     volumes:
       - ./mount/jenkins_home:/var/jenkins_home
 
