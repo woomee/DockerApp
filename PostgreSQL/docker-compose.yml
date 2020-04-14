@@ -6,7 +6,7 @@ volumes:
 
 services:
   postgres:
-    image: postgres:11
+    image: postgres:12.2
     restart: always
     environment:
       - POSTGRES_PASSWORD=postgres
@@ -19,7 +19,7 @@ services:
       - ./mount/pginit:/docker-entrypoint-initdb.d
 
   pgadmin4:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:4.20
     ports:
         - 10080:80
     volumes:

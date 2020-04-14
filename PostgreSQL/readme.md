@@ -23,5 +23,5 @@
 - ログイン/パスワードは全てpostgres/postgres
 
 ## インストールしたソフトウェア
-- PostgreSQL 11
-- PgAdmin4
+- PostgreSQL 12
+- PgAdmin4 4.20
