@@ -40,10 +40,12 @@ services:
       - guacd
 
   
-  # nginx:
-  #   image: nginx:1.17.9
-  #   restart: unless-stopped
-  #   ports:
-  #     - "30080:80"
-  #   volumes:
-  #     - ./mount/nginx/conf.d:/etc/nginx/conf.d
+  nginx:
+    image: nginx:1.17.9
+    restart: unless-stopped
+    ports:
+      - "30080:80"
+    volumes:
+      - ./mount/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - guacamole

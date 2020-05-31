@@ -4,13 +4,15 @@
 
 ## 利用方法
 - サーバを起動: `docker-compose up -d`
-- Webブラウザでアクセス: `http://(ホスト名):19080/guacamole`
+- Webブラウザでアクセス:
+    - Tomcatへ直接アクセス:  `http://(ホスト名):39080/guacamole`
+    - Nginxを介したアクセス:  `http://(ホスト名):39080/guacamole`
 - ログイン/パスワードはguacadmin/guacadmin
 
 ## インストールしたソフト
 - Guacamole (guacamole, guacd)
 - PostgreSQL
-- NginX (リバースプロキシが必要な場合に利用。デフォルとではコメントアウト)
+- NginX (リバースプロキシが必要な場合)
 
 ## Dockerコンテナについて
 参考ページ: https://qiita.com/katuemon/items/97e955f08b7c4b70e827
