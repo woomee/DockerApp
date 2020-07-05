@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  gradle:
+    build:
+      context: .
+    # ホームディレクトリを全て割り当てる
+    # (/home/gradle/.gradleにダウンロードしたキャッシュなども含まれる)
+    volumes:
+      - ~/:/home/gradle
+    working_dir: /home/gradle
+    
+    # コンテナが終了しないようする
+    #（ただ、効果が無いためDockerfile内でbash実行)
+    tty: true
