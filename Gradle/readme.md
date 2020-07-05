@@ -13,13 +13,14 @@
         - `docker-compose exec gradle sh -c "cd /home/gradle/pj1 && gradle init"`
     - 例2: ~/pj1ディレクトリのプロジェクトをビルドする場合
         - `docker-compose exec gradle sh -c "cd /home/gradle/pj1 && gradle build"`
-- <注意事項>
-    - docker-compose exec --workdirの指定はバージョンによっては利用できない
-        - `docker-compose exec --workdir <実行ディレクトリ> gradle <コマンド>`
-        ```sh
-        $ docker-compose exec -w /home/gradle gradle gradle tasks
-        ERROR: Setting workdir for exec is not supported in API < 1.35 (1.25)
-        ```
+## <注意事項>
+1. コンテナによってファイルが生成される場合(`gradle init`など)、ファイルの所有者がrootユーザになりホスト側で編集できない場合があります。その場合は`sudo chown`でファイルの所有者を変更してください。
+1. docker-compose exec --workdirの指定はバージョンによっては利用できない
+    - `docker-compose exec --workdir <実行ディレクトリ> gradle <コマンド>`
+    ```sh
+    $ docker-compose exec -w /home/gradle gradle gradle tasks
+    ERROR: Setting workdir for exec is not supported in API < 1.35 (1.25)
+    ```
 
 ## コンテナ中で利用しているソフトウェア
 - gradle:6.5.1-jdk8
