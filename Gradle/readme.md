@@ -8,7 +8,8 @@
 1. コンテナ内でgradleコマンドを実行
     - コンテナ中の/home/gradleはホストのホームディレクトにマウントされている
 ### 方法2 gradleコマンドを直接実行する方法
-- 実行するコマンドを指定: `docker-compose exec gradle sh -c "<コマンド>"`
+1. コンテナを起動: `docker-compose up -d`
+1. 実行するコマンドを指定: `docker-compose exec gradle sh -c "<コマンド>"`
     - 例1: ~/pj1ディレクトリでプロジェクト初期化する場合
         - `docker-compose exec gradle sh -c "cd /home/gradle/pj1 && gradle init"`
     - 例2: ~/pj1ディレクトリのプロジェクトをビルドする場合
